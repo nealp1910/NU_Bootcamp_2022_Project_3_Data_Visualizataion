@@ -2,7 +2,6 @@
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine
-
 from flask import Flask, jsonify, render_template  
 import json 
 import numpy as np
@@ -10,8 +9,7 @@ import numpy as np
 #################################################
 # Database Setup (database will be called "movies")
 #################################################
-##engine = create_engine("sqlite:///movies.sqlite")
-engine = create_engine('postgresql://postgres:CloseTheDoor1!@localhost:5432/hollywood_movies')
+engine = create_engine('postgresql://postgres:postgres@localhost:5432/hollywood_movies' )
 
 # reflect an existing database into a new model
 Base = automap_base()

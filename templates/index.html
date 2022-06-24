@@ -7,49 +7,96 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Top 1000 Highest Grossing Movies</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/auto/auto.js"></script>
+  
+  
 </head>
 
 <body>
+<div class="container">
 
-  <div class="container">
+<div class="container">
     <div class="row">
       <div class="col-md-12 jumbotron text-center">
-        <h1>Top 1000 Highest Grossing Movies</h1>
+        <h1>Top 1000sfjSKFJ;skjd; Highest Grossing Movies</h1>
+        <p></p>
       </div>
     </div>
     <div class="row">
-      <div class="col-md-3">
+      <div class="col-md-2">
         <div class="well">
           <h5>Release Year:</h5>
-          <select id="selDataset" onchange="optionChanged(this.value)">
-          </select>
+          <select id="selDataset" onchange="optionChanged(this.value)"></select>
         </div>
         <div class="panel panel-primary">
           <div class="panel-heading">
-            <h3 class="panel-title">Movie info</h3>
+            <h3 class="panel-title">Movie Info</h3>
           </div>
           <div id="sample-metadata" class="panel-body"></div>
         </div>
       </div>
       <div class="col-md-5">
-        <div id="bar"></div>
+        <div id="bar">
+            <canvas id="myChart" width="400" height="400"></canvas>
+        </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-5">
         <div id="gauge"></div>
       </div>
     </div>
     <div class="row">
       <div class="col-md-12">
-        <div id="bubble"></div>
+        <div id="bubble">           
+            <script>
+            var myChart = document.getElementById('myChart').getContext('2d');
+var Chart = new Chart(myChart,{
+  type: 'bar',
+  data: {
+      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      datasets: [{
+          label: '# of Votes',
+          data: [12, 19, 3, 5, 2, 3],
+          backgroundColor: [
+              'rgba(255, 99, 132, 0.2)',
+              'rgba(54, 162, 235, 0.2)',
+              'rgba(255, 206, 86, 0.2)',
+              'rgba(75, 192, 192, 0.2)',
+              'rgba(153, 102, 255, 0.2)',
+              'rgba(255, 159, 64, 0.2)'
+          ],
+          borderColor: [
+              'rgba(255, 99, 132, 1)',
+              'rgba(54, 162, 235, 1)',
+              'rgba(255, 206, 86, 1)',
+              'rgba(75, 192, 192, 1)',
+              'rgba(153, 102, 255, 1)',
+              'rgba(255, 159, 64, 1)'
+          ],
+          borderWidth: 1
+      }]
+  },
+  options: {
+      scales: {
+          y: {
+              beginAtZero: true
+          }
+      }
+  }
+});
+        </script>
+        </div>
       </div>
     </div>
   </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script> 
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> 
-  <script src="static/js/app.js"></script> 
-
-
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="./static/js/app.js"></script> 
 </body>
 
 </html>
+
+
+
+//canvas = ID makes the chart, where you place 
+// div, script, inside script chart instructions 
