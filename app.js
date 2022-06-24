@@ -1,4 +1,4 @@
-const url = "./data/movies.json"
+const url = "/api/v1.0/data"
 d3.json(url).then(function(data) {
     console.log(data);
 });
