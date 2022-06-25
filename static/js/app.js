@@ -1,8 +1,8 @@
 const url = "/api/v1.0/data"
-d3.json(url).then((data) =>{
-        var MovYears = _.groupBy(data, 'year');
-        console.log(MovYears)
-})
+// d3.json(url).then((data) =>{
+//         var MovYears = _.groupBy(data, 'year');
+//         console.log(MovYears)
+// })
 
 
 // create init function to an build inital plot when refreshed
@@ -23,21 +23,18 @@ function buildPlot(){
 
     d3.json(url).then((data) =>{
         //Making a list including all of the movie title names
-        var MovYears = _.groupBy(data, 'year');
-        console.log(MovYears)
   
         // Create the drop down menu by inserting each movie title name in the below function.
-        MovYears.forEach(Title => d3.select('#selDataset').append('option').text(Title).property("value", Title));
+        // MovYears.forEach(Title => d3.select('#selDataset').append('option').text(Title).property("value", Title));
 
 
         // Use D3 to select the current ID and storing within a variable
         var currentyear = d3.selectAll("#selDataset").node().value;
-     
+        currentyear = "2010"
 
         //filter the data for the current ID to get desired information
-        //filtyear = data.samples.filter(entry => entry.Title == currentMOVIE);
-        filtyear = d3.group(data, y => y.year)
-
+        filtyear = data.filter(entry => entry.year == currentyear);
+        console.log(filtyear)
 
                 // making Trace for the horizontal bar chart
         var trace1 = {
