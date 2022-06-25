@@ -1,7 +1,9 @@
 const url = "/api/v1.0/data"
-d3.json(url).then(function(data) {
-    console.log(data);
-});
+d3.json(url).then((data) =>{
+        var MovYears = _.groupBy(data, 'year');
+        console.log(MovYears)
+})
+
 
 // create init function to an build inital plot when refreshed
 function init(){
@@ -21,20 +23,23 @@ function buildPlot(){
 
     d3.json(url).then((data) =>{
         //Making a list including all of the movie title names
-        var TitleValues = data.names;
+        var MovYears = _.groupBy(data, 'year');
+        console.log(MovYears)
   
         // Create the drop down menu by inserting each movie title name in the below function.
-        TitleValues.forEach(id => d3.select('#selDataset').append('option').text(Title).property("value", Title));
+        MovYears.forEach(Title => d3.select('#selDataset').append('option').text(Title).property("value", Title));
 
 
         // Use D3 to select the current ID and storing within a variable
-        var currentID = d3.selectAll("#selDataset").node().value;
+        var currentyear = d3.selectAll("#selDataset").node().value;
      
 
         //filter the data for the current ID to get desired information
-        filteredMOVIE = data.samples.filter(entry => entry.Title == currentMOVIE);
+        //filtyear = data.samples.filter(entry => entry.Title == currentMOVIE);
+        filtyear = d3.group(data, y => y.year)
 
-        // making Trace for the horizontal bar chart
+
+                // making Trace for the horizontal bar chart
         var trace1 = {
             x: filteredID[0].sample_values.slice(0,10).reverse(),
             y: filteredID[0].otu_ids.slice(0, 10).reverse().map(int => "OTU " + int.toString()),
@@ -63,7 +68,7 @@ function buildPlot(){
         Plotly.newPlot("bar", dataPlot, layout);
 
         // Making the demographics panel
-        filteredMeta = data.metadata.filter(entry => entry.Title == currentID)
+        filteredMeta = data.metadata.filter(entry => entry.Title == currentyear)
        
         // Making a demographics object to add to the panel body
         var demographics = {
