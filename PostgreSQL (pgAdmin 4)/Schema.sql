@@ -12,7 +12,7 @@ CREATE table movies (
 	international_sales int NOT NULL,
 	world_sales bigint NOT NULL,
 	genre varchar(255) NOT NULL,
-	movie_runtime varchar(255) NOT NULL,
+	movie_runtime int NOT NULL,
 	license varchar(255) NOT NULL
 );
 

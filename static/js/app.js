@@ -23,27 +23,34 @@ function buildPlot(){
 
     d3.json(url).then((data) =>{
         //Making a list including all of the movie title names
-  
+        
         // Create the drop down menu by inserting each movie title name in the below function.
-        // MovYears.forEach(Title => d3.select('#selDataset').append('option').text(Title).property("value", Title));
+        
 
+        var uniqueyear = {}
+        let yearslist = data.map(i => i.year )
+        const uniqueYears = [...new Set(yearslist)]
+        const sortYears = uniqueYears.sort(function(a,b){return a-b})
 
+        sortYears.forEach(year => d3.select('#selDataset').append('option').text(year).property("value", year));
         // Use D3 to select the current ID and storing within a variable
         var currentyear = d3.selectAll("#selDataset").node().value;
-        currentyear = "2010"
+        //currentyear = "2010"
 
         //filter the data for the current ID to get desired information
         filtyear = data.filter(entry => entry.year == currentyear);
         console.log(filtyear)
 
                 // making Trace for the horizontal bar chart
-        var trace1 = {
-            x: filteredID[0].sample_values.slice(0,10).reverse(),
-            y: filteredID[0].otu_ids.slice(0, 10).reverse().map(int => "OTU " + int.toString()),
-            text: filteredID[0].otu_labels.slice(0,10).reverse(),
-            type:"bar",
-            orientation: 'h'
-        };
+
+                
+        // var trace1 = {
+        //     x: filteredID[0].sample_values.slice(0,10).reverse(),
+        //     y: filteredID[0].otu_ids.slice(0, 10).reverse().map(int => "OTU " + int.toString()),
+        //     text: filteredID[0].otu_labels.slice(0,10).reverse(),
+        //     type:"bar",
+        //     orientation: 'h'
+        // };
     
       
         // data
