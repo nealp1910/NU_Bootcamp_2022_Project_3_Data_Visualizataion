@@ -1,8 +1,5 @@
-const url = "/api/v1.0/data"
-// d3.json(url).then((data) =>{
-//         var MovYears = _.groupBy(data, 'year');
-//         console.log(MovYears)
-// })
+const url = "/api/v2.0/data"
+
 
 
 // create init function to an build inital plot when refreshed
@@ -39,11 +36,58 @@ function buildPlot(){
 
         //filter the data for the current ID to get desired information
         filtyear = data.filter(entry => entry.year == currentyear);
-        console.log(filtyear)
+        console.log('Stuff',filtyear)
+
+        var GroupYears = _.groupBy(filtyear, 'month');
+        console.log('Gy',GroupYears)
+
+        
+        var DomSales = 0;
+        
+        // GroupYears.domestic_sales.forEach(function(num) {sum += num})
+
+        // DomAvg = sum / GroupYears.length
+        function mean_list(list_data){monval/monval.length}
+
+        var monthdate = {"1":0,'2':0,'3':0,'4':0,'5':0,'6':0,'7':0,'8':0,'9':0,'10':0,'11':0,'12':0}
+        for(var m = 1; m < 13; m++){
+            var monval = []
+            var arr = GroupYears[m]; 
+            console.log(m)
+            console.log('Here',arr)
+            
+            if(arr.length > -1 ){
+            for(j = 0; j < arr.length; j++) {
+                console.log('j',j)
+            monval.push(arr[j].domestic_sales); 
+            }
+        }
+            monthdate[m] = mean_list(monval) 
+        
+        }
+        
+        console.log('monval',monval)
+        // for(var i = 0; i < GroupYears.domestic_sales.length; i++){
+        //     DomSales += GroupYears.domestic_sales[i];
+        // }
+        // var DomAvg = DomSales/GroupYears.domestic_sales.length
+
+        console.log(DomAvg)
+        var IntSales = 0
+        var RunMin = 0
+    
+        
+
+
+
+        
+
+
+
 
                 // making Trace for the horizontal bar chart
 
-                
+
         // var trace1 = {
         //     x: filteredID[0].sample_values.slice(0,10).reverse(),
         //     y: filteredID[0].otu_ids.slice(0, 10).reverse().map(int => "OTU " + int.toString()),
