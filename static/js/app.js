@@ -38,39 +38,103 @@ function buildPlot(){
         filtyear = data.filter(entry => entry.year == currentyear);
         console.log('Stuff',filtyear)
 
-        var GroupYears = _.groupBy(filtyear, 'month');
-        console.log('Gy',GroupYears)
+        January = data.filter(entry => entry.month == 1 && entry.year == currentyear);
+        console.log('Jan',January)
+
+        var JanRed = January.reduce((total, amount) => total + amount);
+        console.log(JanRed.domestic_sales)
+        console.log(JanRed.domestic_sales/January.length)
+
+        February = data.filter(entry => entry.month == 2 && entry.year == currentyear);
+        console.log('Feb',February)
+
+        var FebRed = February.reduce((total, amount) => total + amount,0);
+        console.log(February.domestic_sales)
+        console.log(FebRed.domestic_sales)
+        console.log(FebRed.domestic_sales/February.length)
+        var ff =February.flat()
+        console.log(ff)
+
+        March = data.filter(entry => entry.month == 3 && entry.year == currentyear);
+        console.log('Mar',March)
+
+        April = data.filter(entry => entry.month == 4 && entry.year == currentyear);
+        console.log('Apr',April)
+
+        May = data.filter(entry => entry.month == 5 && entry.year == currentyear);
+        console.log('May',May)
+
+        June = data.filter(entry => entry.month == 6 && entry.year == currentyear);
+        console.log('June',June)
+
+        July = data.filter(entry => entry.month == 7 && entry.year == currentyear);
+        console.log('July',July)
+
+        August = data.filter(entry => entry.month == 8 && entry.year == currentyear);
+        console.log('Aug',August)
+
+        September = data.filter(entry => entry.month == 9 && entry.year == currentyear);
+        console.log('Sep',September)
+
+        October = data.filter(entry => entry.month == 10 && entry.year == currentyear);
+        console.log('Oct',October)
+
+        November = data.filter(entry => entry.month == 11 && entry.year == currentyear);
+        console.log('Nov',November)
+
+        December = data.filter(entry => entry.month == 12 && entry.year == currentyear);
+        console.log('Dec',December)
 
         
-        var DomSales = 0;
         
-        // GroupYears.domestic_sales.forEach(function(num) {sum += num})
 
-        // DomAvg = sum / GroupYears.length
-        function mean_list(list_data){monval/monval.length}
 
-        var monthdate = {"1":0,'2':0,'3':0,'4':0,'5':0,'6':0,'7':0,'8':0,'9':0,'10':0,'11':0,'12':0}
-        for(var m = 1; m < 13; m++){
-            var monval = []
-            var arr = GroupYears[m]; 
-            console.log(m)
-            console.log('Here',arr)
-            
-            if(arr.length > -1 ){
-            for(j = 0; j < arr.length; j++) {
-                console.log('j',j)
-            monval.push(arr[j].domestic_sales); 
-            }
-        }
-            monthdate[m] = mean_list(monval) 
+
+
+
+        // for (var i = 0; i < January.length; i++){
+        //     var JanDom = []
+        //     JanDom.push(January.Domestic_Sales)
         
-        }
-        
-        console.log('monval',monval)
-        // for(var i = 0; i < GroupYears.domestic_sales.length; i++){
-        //     DomSales += GroupYears.domestic_sales[i];
         // }
-        // var DomAvg = DomSales/GroupYears.domestic_sales.length
+        // console.log(JanDom)
+
+
+
+
+        // var GroupYears = _.groupBy(filtyear, 'month');
+        // console.log('Gy',GroupYears)
+
+        
+        // var DomSales = 0;
+        
+        // // GroupYears.domestic_sales.forEach(function(num) {sum += num})
+
+        // // DomAvg = sum / GroupYears.length
+        // function mean_list(list_data){monval/monval.length}
+
+        // var monthdate = {"1":0,'2':0,'3':0,'4':0,'5':0,'6':0,'7':0,'8':0,'9':0,'10':0,'11':0,'12':0}
+        // for(var m = 1; m < 13; m++){
+        //     var monval = []
+        //     var arr = GroupYears[m]; 
+        //     console.log(m)
+        //     console.log('Here',arr)
+            
+        //     if(arr.length > -1 ){
+        //     for(j = 0; j < arr.length; j++) {
+        //         console.log('j',j)
+        //     monval.push(arr[j].domestic_sales); 
+        //     }
+        // }
+        //     monthdate[m] = mean_list(monval) 
+        
+        // }
+        
+        // console.log('monval',monval)
+        // // for(var i = 0; i < GroupYears.domestic_sales.length; i++){
+        // //     DomSales += GroupYears.domestic_sales[i];
+        // // }
+        // // var DomAvg = DomSales/GroupYears.domestic_sales.length
 
         console.log(DomAvg)
         var IntSales = 0
