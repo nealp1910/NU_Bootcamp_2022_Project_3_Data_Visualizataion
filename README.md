@@ -8,7 +8,7 @@ This project explored a CSV data file that contained a list of Top 1000 Highest 
 
 ## Link to Database 
   - Kaggle: https://www.kaggle.com/datasets/sanjeetsinghnaik/top-1000-highest-grossing-movies
-  - PostgreSQL pgAdmin4: postgresql://postgres:42094064Aa!1@localhost:5432/hollywood_movies
+  - PostgreSQL pgAdmin4: postgresql://postgres:postgres@localhost:5432/hollywood_movies
   - JSON file: "fixed.json"
   - CSV file: "Highest Holywood Grossing Movies(modified).csv"
 
