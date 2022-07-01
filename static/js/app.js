@@ -6,6 +6,25 @@ const url = "/api/v2.0/data"
 function init(){
     buildPlot()
 }
+d3.json(url).then((data) =>{
+    console.log(data)  
+
+    //Making a list including all of the movie title names
+    
+    // Create the drop down menu by inserting each movie title name in the below function.
+    
+
+    var uniqueyear = {}
+    let yearslist = data.map(i => i.year )
+    const uniqueYears = [...new Set(yearslist)]
+    const sortYears = uniqueYears.sort(function(a,b){return a-b})
+
+    // console.log(data)        
+    // console.log(yearslist)
+    // console.log(sortYears)
+
+    // d3.selectAll("#selDataset").html("")
+    sortYears.forEach(year => d3.select('#selDataset').append('option').text(year).property("value", year));
 
 //Using the create function that will apply once the option has changed
 d3.selectAll("#selDataset").on('change',buildPlot);
@@ -13,25 +32,6 @@ d3.selectAll("#selDataset").on('change',buildPlot);
 function buildPlot(){
 
 
-    d3.json(url).then((data) =>{
-        console.log(data)  
-
-        //Making a list including all of the movie title names
-        
-        // Create the drop down menu by inserting each movie title name in the below function.
-        
-
-        var uniqueyear = {}
-        let yearslist = data.map(i => i.year )
-        const uniqueYears = [...new Set(yearslist)]
-        const sortYears = uniqueYears.sort(function(a,b){return a-b})
-
-        // console.log(data)        
-        // console.log(yearslist)
-        // console.log(sortYears)
-
-        // d3.selectAll("#selDataset").html("")
-        sortYears.forEach(year => d3.select('#selDataset').append('option').text(year).property("value", year));
         // Use D3 to select the current ID and storing within a variable
         var dropdownmenu = d3.selectAll("#selDataset");        
         var currentyear = dropdownmenu.property("value");
@@ -221,8 +221,8 @@ function buildPlot(){
         Plotly.newPlot('pie', data3, layout3);
 
 
-    });
-};
+    };
+});
 
 //run init to set the main page
 init();
