@@ -42,7 +42,7 @@ def data2():
     session = Session(engine)
 
     """Return a list of all movie titles"""
-    # Query all passengers
+    # Query all movies
     results = session.query(Movies.month, Movies.year, Movies.domestic_sales, Movies.international_sales, Movies.world_sales, Movies.movie_runtime).all()
     session.close()
     all_names = []
