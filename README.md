@@ -19,7 +19,9 @@ This project explored a CSV data file that contained a list of Top 1000 Highest 
   - Flask
   - Python
   - PostgreSQL (pgAdmin4)
-  - chart.js
   - d3.js
+  - plot.ly
 
 ## Images
+[![Screen-Shot1.png](https://i.postimg.cc/Fz6bpvLF/Screen-Shot1.png)](https://postimg.cc/tnhVRLk8)
+[![Screen-Shot2.png](https://i.postimg.cc/Bv3TMMXF/Screen-Shot2.png)](https://postimg.cc/3kL0wjjr)
