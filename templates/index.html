@@ -3,54 +3,96 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="X-UA-Compatible"content="IE=edge"/>
+  <meta name="viewport"content="width=device-width,initial-scale=1.0"/>
+  <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
   <title>Top 1000 Highest Grossing Hollywood Films</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://cdn.plot.ly/plotly-2.12.1.min.js"></script>
   
+  <!-- yaf many dashes start -->
+  <!-- new -->
+  <link rel="stylesheet" href="../static/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="../static/css/dataTables.bootstrap5.min.css"/>
+  <link rel="stylesheet" href="../static/css/style.css"/>   
+  <!-- new end -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"/>
+  <link rel="stylesheet" href="css/dataTables.bootstrap5.min.css" />
+  <link rel="stylesheet" href="../static/css/style.css" />
+    
+  <link href="../static/css/yaf_nav.css" rel="stylesheet">
+  <!-- yaf many dashes end -->
   
 </head>
+<!-- style = "background-color: #888984" -->
+<!-- header panel start -->
+<header>
+  <h1>Top<span> 1000 </span>Highest Grossing Hollywood Films</h1>
+  <nav>
+    <ul>
+      <li><a href="landingpage.html"> Home </a></li>
+      <li><a href="http://127.0.0.1:5000/api/v2.0/data"> Data </a></li>
+             
+    </ul>
+  </nav>
+</header>
+<!-- header panel end -->
+<body >
 
-<body style = "background-color: #888984">
-<div class="container">
+<!-- <div class="container"> -->
 
 <div class="container">
-    <div class="row">
-      <div class="col-md-12 jumbotron text-center">
-        <h1>Top 1000 Highest Grossing Hollywood Films</h1>
-        <p></p>
+ <!-- yaf select year--> 
+  <div class="row">
+    <h5>Release Year:</h5>
+        <select id="selDataset" onchange="optionChanged(this.value)"></select>
+  </div>  
+
+  <!-- new -->
+  <div class="row">
+    <div class="col-md-12 mb-3">
+            <div class="card h-100">
+              <div class="card-header">
+                <span class="me-2"><i class="bi bi-bar-chart-fill"></i></span>
+                Average Domestic Vs International Sales Over The Year
+              </div>
+              <div id="line"></div>
+              <div class="card-body">
+                <canvas class="chart" width="400" height="200"></canvas>
+              </div>
+            </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 mb-3">
+      <div class="card h-100">
+        <div class="card-header">
+          <span class="me-2"><i class="bi bi-bar-chart-fill"></i></span>
+          Total Domestic Vs International Sales in The Year
+        </div>
+        <div id="pie"></div>
+        <div class="card-body">
+          <canvas class="chart" width="400" height="200"></canvas>
+        </div>
       </div>
     </div>
-    <div class="row">
-      <h2>Flask Routes</h2>
-      <p>localhost</p>
-      <p>/api/v2.0/data</p>
-      <div class="col-md-2">
-        <div class="well">
-          <h5>Release Year:</h5>
-          <select id="selDataset" onchange="optionChanged(this.value)"></select>
+    <div class="col-md-6 mb-3">
+      <div class="card h-100">
+        <div class="card-header">
+          <span class="me-2"><i class="bi bi-bar-chart-fill"></i></span>
+          Average Movie Runtime Over The Year
         </div>
-          </div>
-          <div id="sample-metadata" class="panel-body"></div>
-        </div>
-      </div>
-      <div class="col-md-5">
-        <div id="line2">
-        </div>        
-      </div>
-      <div class="col-md-5">
-        <div id="pie">
+        <div id="line2"></div>
+        <div class="card-body">
+          <canvas class="chart" width="400" height="200"></canvas>
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-12">
-        <div id="line">
-        </div>
-      </div>
-    </div>
-    <div class="container">
+  <!-- new  -->
+
+
+  
+    
       
   </div>
 
@@ -58,14 +100,11 @@
   <script src="../static/js/app.js"></script> 
   
 </body>
-<footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top footer">
-  <p class="col-md-4 mb-0 text-muted">&copy; Desigend By Alfredo Garcia, Connor Grant, Neel Patel,Yousuf Amin Alfatwa ,June 2022</p>
+<footer>
+  <p class="col-md-12 mb-0 text-muted">&copy; Desigend By Alfredo Garcia, Connor Grant, Neel Patel,Yousuf Amin Alfatwa ,June 2022</p>
 
-</html>
+
 </footer>
 </html>
 
 
-
-<!--canvas = ID makes the chart, where you place 
-// div, script, inside script chart instructions 
